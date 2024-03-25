@@ -31,7 +31,6 @@ public class Player : MonoBehaviour
             StartCoroutine(Dash());
         }
         
-        
         hAxis = Input.GetAxisRaw("Horizontal");
         vAxis = Input.GetAxisRaw("Vertical");
 
