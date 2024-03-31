@@ -7,14 +7,14 @@ using UnityEngine.AI;
 public class MonsterMove : MonoBehaviour
 {
 
-    private Transform target;
+    public  Transform target;
 
     private NavMeshAgent navMeshAgent;
 
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
