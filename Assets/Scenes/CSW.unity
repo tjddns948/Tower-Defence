@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 724344780}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20204b91b480c124791a37b3bc41d46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPrefab: {fileID: 6109752858104242934, guid: 9f10178571d310d4bad1d076d09cfe46, type: 3}
+  monsterPrefab: {fileID: 99103456209695263, guid: 9f10178571d310d4bad1d076d09cfe46, type: 3}
   spawnPoint: {fileID: 1606641971}
   spawnInterval: 1
   totalMonsterCount: 70

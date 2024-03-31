@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MonsterSpawn : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class MonsterSpawn : MonoBehaviour
 
     private int currentMonsterCount = 0; // 생성된 몬스터 수
 
+   
     void Start()
     {
         InvokeRepeating("SpawnMonster", 0f, spawnInterval); // 일정간격으로 몬스터 생성 시작
