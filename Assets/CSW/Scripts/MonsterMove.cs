@@ -14,7 +14,7 @@ public class MonsterMove : MonoBehaviour
 
     void Start()
     {
-        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
