@@ -1,13 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-<<<<<<<< HEAD:Assets/HSH/DownloadAsset.meta
 guid: a4cbc0d348a8a8b4ba40989ee7d600f7
-========
-guid: 72151c672fda9e7469df0361d9adaf64
->>>>>>>> 4331963351792d4a1bd0c7a84d09ba28575d63c5:Assets/HSH/KriptoFX.meta
-=======
-guid: 0e94e1ee392b7234686e9d3ea8fdfae5
->>>>>>> 4331963351792d4a1bd0c7a84d09ba28575d63c5
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerIceShot : MonoBehaviour
+public class PlayerShot: MonoBehaviour
 {
     public GameObject bulletFactory;
     public Transform bulletSpawn;
@@ -41,6 +41,5 @@ public class PlayerIceShot : MonoBehaviour
         bullet.transform.forward = shootDirection;
 
     }
-
 
 }

@@ -34,11 +34,18 @@ public class WeaponManager : MonoBehaviour
     public float fireRate = 0.1f;
     private float nextFireTime = 0f;
 
+    [Header("SelectImage")]
+    public GameObject Selice;
+    public GameObject SelFire;
+    public GameObject SelNor;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        SelNor.SetActive(true);
+        SelFire.SetActive(false);
+        Selice.SetActive(false);
+
         InitializeWeapon();
     }
 
@@ -47,6 +54,10 @@ public class WeaponManager : MonoBehaviour
     {
         if (NormalWeapon.activeSelf == true)
         {
+            SelNor.SetActive(true);
+            SelFire.SetActive(false);
+            Selice.SetActive(false);
+
             if (Input.GetMouseButton(0) && Time.time >= nextNormalTime)
             {
                 StartCoroutine(NormalCoolTime());
@@ -55,6 +66,9 @@ public class WeaponManager : MonoBehaviour
         }
         if (FireWeapon.activeSelf == true)
         {
+            SelNor.SetActive(false);
+            SelFire.SetActive(true);
+            Selice.SetActive(false);
             if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
             {
                 StartCoroutine(FireCoolTime());
@@ -63,6 +77,9 @@ public class WeaponManager : MonoBehaviour
         }
         if (IceWeapon.activeSelf == true)
         {
+            SelNor.SetActive(false);
+            SelFire.SetActive(false);
+            Selice.SetActive(true);
             if (Input.GetMouseButton(0) && Time.time >= nexticeTime)
             {
                 StartCoroutine(iceCoolTime());
