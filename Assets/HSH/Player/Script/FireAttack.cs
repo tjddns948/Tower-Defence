@@ -7,10 +7,13 @@ public class FireAttack : MonoBehaviour
     public float speed = 10.0f;
     public GameObject explosionEffect;
 
+    AudioSource fireSound;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        AudioSource firesound = GetComponent<AudioSource>();
+        firesound.playOnAwake = true;
     }
 
     // Update is called once per frame

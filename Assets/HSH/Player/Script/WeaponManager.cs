@@ -10,15 +10,67 @@ public class WeaponManager : MonoBehaviour
     private int index = 0;
     private bool isSwitching = false;
 
+    [Header("NormalWeapon")]
+    public UnityEngine.UI.Image norImage;
+    public GameObject NormalWeapon;
+    public float ncurrentCool = 5.0f;
+    public float nmaxCool = 5.0f;
+    public float NormalRate = 0.1f;
+    private float nextNormalTime = 0f;
+
+    [Header("IceWeapon")]
+    public UnityEngine.UI.Image iceImage;
+    public GameObject IceWeapon;
+    public float icurrentCool = 5.0f;
+    public float imaxCool = 5.0f;
+    public float iceRate = 0.1f;
+    private float nexticeTime = 0f;
+
+    [Header("FireWeapon")]
+    public UnityEngine.UI.Image fireImage;
+    public GameObject FireWeapon;
+    public float fcurrentCool = 5.0f;
+    public float fmaxCool = 5.0f;
+    public float fireRate = 0.1f;
+    private float nextFireTime = 0f;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        
         InitializeWeapon();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (NormalWeapon.activeSelf == true)
+        {
+            if (Input.GetMouseButton(0) && Time.time >= nextNormalTime)
+            {
+                StartCoroutine(NormalCoolTime());
+                nextNormalTime = Time.time + 1f / NormalRate;
+            }
+        }
+        if (FireWeapon.activeSelf == true)
+        {
+            if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
+            {
+                StartCoroutine(FireCoolTime());
+                nextFireTime = Time.time + 1f / fireRate;
+            }
+        }
+        if (IceWeapon.activeSelf == true)
+        {
+            if (Input.GetMouseButton(0) && Time.time >= nexticeTime)
+            {
+                StartCoroutine(iceCoolTime());
+                nexticeTime = Time.time + 1f / iceRate;
+            }
+        }
+
+
         // ÈÙ ¹«±âº¯°æ
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && !isSwitching)
         {
@@ -63,5 +115,51 @@ public class WeaponManager : MonoBehaviour
             weapon[i].SetActive(false);
         }
         weapon[newIndex].SetActive(true);
+    }
+
+    IEnumerator iceCoolTime()
+    {
+        while (icurrentCool > 0.0f)
+        {
+            icurrentCool -= Time.deltaTime;
+            iceImage.fillAmount = icurrentCool / imaxCool;
+            yield return new WaitForFixedUpdate();
+        }
+        if (icurrentCool <= 0.0f)
+        {
+            icurrentCool = imaxCool;
+            iceImage.fillAmount = icurrentCool / imaxCool;
+
+        }
+    }
+    IEnumerator FireCoolTime()
+    {
+        while (fcurrentCool > 0.0f)
+        {
+            fcurrentCool -= Time.deltaTime;
+            fireImage.fillAmount = fcurrentCool / fmaxCool;
+            yield return new WaitForFixedUpdate();
+        }
+        if (fcurrentCool <= 0.0f)
+        {
+            fcurrentCool = fmaxCool;
+            fireImage.fillAmount = fcurrentCool / fmaxCool;
+
+        }
+    }
+    IEnumerator NormalCoolTime()
+    {
+        while (ncurrentCool > 0.0f)
+        {
+            ncurrentCool -= Time.deltaTime;
+            norImage.fillAmount = ncurrentCool / nmaxCool;
+            yield return new WaitForFixedUpdate();
+        }
+        if (ncurrentCool <= 0.0f)
+        {
+            ncurrentCool = nmaxCool;
+            norImage.fillAmount = ncurrentCool / nmaxCool;
+
+        }
     }
 }

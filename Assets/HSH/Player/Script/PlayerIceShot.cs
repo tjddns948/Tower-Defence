@@ -1,16 +1,16 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerFire : MonoBehaviour
+public class PlayerIceShot : MonoBehaviour
 {
     public GameObject bulletFactory;
-
     public Transform bulletSpawn;
-
     public float fireRate = 0.1f; //  초당 발사되는 총알의 개수
-
     private float nextFireTime = 0f; // 다음 총알 발사 시간
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +23,10 @@ public class PlayerFire : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
         {
-            OneShotFire();
+            OneShotFire();  
             nextFireTime = Time.time + 1f / fireRate;
         }
+
     }
 
 
@@ -40,7 +41,6 @@ public class PlayerFire : MonoBehaviour
         bullet.transform.forward = shootDirection;
 
     }
-
 
 
 }
