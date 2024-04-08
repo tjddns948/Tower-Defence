@@ -775,7 +775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterPrefab: {fileID: 2190795518897424354, guid: f7d1be223142e524dbfa6db055b5a0d8, type: 3}
   spawnPoint: {fileID: 1606641971}
-  spawnInterval: 5
+  spawnInterval: 1
   totalMonsterCount: 20
 --- !u!4 &1606641971
 Transform:
