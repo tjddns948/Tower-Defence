@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3529960731605662871}
   m_Layer: 0
   m_Name: IceAttack
-  m_TagString: Bullet
+  m_TagString: IceBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,9 +105,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6310567995393576481}
     m_Modifications:
+    - target: {fileID: 100000, guid: 200e650fba6c8492b87e96e4bc273510, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 200e650fba6c8492b87e96e4bc273510, type: 3}
       propertyPath: m_Name
       value: ErekiBall2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 200e650fba6c8492b87e96e4bc273510, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 200e650fba6c8492b87e96e4bc273510, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 200e650fba6c8492b87e96e4bc273510, type: 3}
       propertyPath: m_LocalPosition.x

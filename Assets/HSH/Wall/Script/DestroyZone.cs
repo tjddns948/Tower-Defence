@@ -18,9 +18,18 @@ public class DestroyZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Equals("Bullet"))
+        if (other.gameObject.tag.Equals("NormalBullet"))
         {
             Destroy (other.gameObject);
         }
+        if (other.gameObject.tag.Equals("IceBullet"))
+        {
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.tag.Equals("FireBullet"))
+        {
+            Destroy(other.gameObject);
+        }
+
     }
 }
