@@ -7,13 +7,11 @@ TagManager:
   - Wall
   - Floor
   - Enemy
-  - Bullet
   - FireBullet
   - IceBullet
   - NormalBullet
   - FireDot
   - IceExplosion
-  - Tower
   layers:
   - Default
   - TransparentFX
