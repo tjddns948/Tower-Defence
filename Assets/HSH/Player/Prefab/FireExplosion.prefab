@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4187788039510587421}
   m_Layer: 0
   m_Name: FireExplosion
-  m_TagString: Untagged
+  m_TagString: FireDot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,8 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba412995369b26499942a7c56b9401c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePerDamage: 5
-  fireDuration: 5
 --- !u!136 &7951130622146226550
 CapsuleCollider:
   m_ObjectHideFlags: 0

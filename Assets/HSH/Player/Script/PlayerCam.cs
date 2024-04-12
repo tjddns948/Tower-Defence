@@ -18,6 +18,12 @@ public class PlayerCam : MonoBehaviour
     float h;
     float v;
 
+    [Header("Dash")]
+    public float dashSpeed = 10f;
+    public float dashDuration = 0.5f;
+    private float originalMoveSpeed;
+    private bool isDashing = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +31,8 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;                     
         rb = GetComponent<Rigidbody>();             
         rb.freezeRotation = true;                   
-        cam = Camera.main;                         
+        cam = Camera.main;
+        originalMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -33,6 +40,12 @@ public class PlayerCam : MonoBehaviour
     {
         Rotate();
         Move();
+
+        // Dash 입력 감지
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing)
+        {
+            StartCoroutine(Dash());
+        }
     }
     void Rotate()
     {
@@ -54,4 +67,15 @@ public class PlayerCam : MonoBehaviour
         Vector3 moveVec = transform.forward * v + transform.right * h;
         transform.position += moveVec.normalized * moveSpeed * Time.deltaTime;
     }
+    IEnumerator Dash()
+    {
+        isDashing = true;
+        moveSpeed = dashSpeed;
+
+        yield return new WaitForSeconds(dashDuration);
+
+        moveSpeed = originalMoveSpeed;
+        isDashing = false;
+    }
+
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6314678643061047811}
   m_Layer: 0
   m_Name: IceExplosion
-  m_TagString: Untagged
+  m_TagString: IceExplosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
