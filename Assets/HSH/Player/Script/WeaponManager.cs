@@ -52,9 +52,59 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        NumberWeaponChange();
-        WheelWeaponChange();
-        DetectWeaponChange();
+        if (NormalWeapon.activeSelf == true)
+        {
+            SelNor.SetActive(true);
+            SelFire.SetActive(false);
+            Selice.SetActive(false);
+
+            if (Input.GetMouseButton(0) && Time.time >= nextNormalTime)
+            {
+                StartCoroutine(NormalCoolTime());
+                nextNormalTime = Time.time + 1f / NormalRate;
+            }
+        }
+        if (FireWeapon.activeSelf == true)
+        {
+            SelNor.SetActive(false);
+            SelFire.SetActive(true);
+            Selice.SetActive(false);
+            if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
+            {
+                StartCoroutine(FireCoolTime());
+                nextFireTime = Time.time + 1f / fireRate;
+            }
+        }
+        if (IceWeapon.activeSelf == true)
+        {
+            SelNor.SetActive(false);
+            SelFire.SetActive(false);
+            Selice.SetActive(true);
+            if (Input.GetMouseButton(0) && Time.time >= nexticeTime)
+            {
+                StartCoroutine(iceCoolTime());
+                nexticeTime = Time.time + 1f / iceRate;
+            }
+        }
+
+
+        // 휠 무기변경
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && !isSwitching)
+        {
+            index++;
+            if (index >= weapon.Length)
+                index = 0;
+            StartCoroutine(SwitchDelay(index));
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && !isSwitching)
+        {
+            index--;
+            if (index < 0)
+                index = weapon.Length - 1;
+            StartCoroutine(SwitchDelay(index));
+        }
+
     }
     private void InitializeWeapon()
     {
@@ -127,81 +177,6 @@ public class WeaponManager : MonoBehaviour
             ncurrentCool = nmaxCool;
             norImage.fillAmount = ncurrentCool / nmaxCool;
 
-        }
-    }
-    void DetectWeaponChange()
-    {
-        if (NormalWeapon.activeSelf == true)
-        {
-            SelNor.SetActive(true);
-            SelFire.SetActive(false);
-            Selice.SetActive(false);
-
-            if (Input.GetMouseButton(0) && Time.time >= nextNormalTime)
-            {
-                StartCoroutine(NormalCoolTime());
-                nextNormalTime = Time.time + 1f / NormalRate;
-            }
-        }
-        if (FireWeapon.activeSelf == true)
-        {
-            SelNor.SetActive(false);
-            SelFire.SetActive(true);
-            Selice.SetActive(false);
-            if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
-            {
-                StartCoroutine(FireCoolTime());
-                nextFireTime = Time.time + 1f / fireRate;
-            }
-        }
-        if (IceWeapon.activeSelf == true)
-        {
-            SelNor.SetActive(false);
-            SelFire.SetActive(false);
-            Selice.SetActive(true);
-            if (Input.GetMouseButton(0) && Time.time >= nexticeTime)
-            {
-                StartCoroutine(iceCoolTime());
-                nexticeTime = Time.time + 1f / iceRate;
-            }
-        }
-    }
-    void NumberWeaponChange()
-    {
-        // 키보드로 무기 변경
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !isSwitching)
-        {
-            index = 0;
-            StartCoroutine(SwitchDelay(index));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && !isSwitching)
-        {
-            index = 1;
-            StartCoroutine(SwitchDelay(index));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && !isSwitching)
-        {
-            index = 2;
-            StartCoroutine(SwitchDelay(index));
-        }
-    }
-    void WheelWeaponChange()
-    {
-        // 휠 무기변경
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && !isSwitching)
-        {
-            index++;
-            if (index >= weapon.Length)
-                index = 0;
-            StartCoroutine(SwitchDelay(index));
-        }
-
-        if (Input.GetAxis("Mouse ScrollWheel") < 0 && !isSwitching)
-        {
-            index--;
-            if (index < 0)
-                index = weapon.Length - 1;
-            StartCoroutine(SwitchDelay(index));
         }
     }
 }

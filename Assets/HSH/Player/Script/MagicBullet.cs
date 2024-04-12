@@ -26,6 +26,7 @@ public class MagicBullet : MonoBehaviour
         // 에너미에 맞으면
         if (other.gameObject.tag.Equals ("Enemy"))
         {
+            GameObject.Find("EnemyUI").SendMessage("nPlayerAttackHP");
             Destroy(gameObject);
         }
     }

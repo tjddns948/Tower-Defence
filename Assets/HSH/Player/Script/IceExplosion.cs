@@ -24,4 +24,16 @@ public class IceExplosion : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        // enemy가 충돌하면 슬로우
+        if (other.gameObject.tag.Equals("Enemy"))
+        {
+            Enemy enemyMove = other.GetComponent<Enemy>();
+            if ( enemyMove != null)
+            {
+                enemyMove.DecreaseMoveSpeed(slowAmount, slowDuration);
+            }
+        }
+    }
 }

@@ -25,6 +25,7 @@ public class IceAttack : MonoBehaviour
         // 에너미에 맞으면
         if (other.gameObject.tag.Equals("Enemy"))
         {
+            GameObject.Find("EnemyUI").SendMessage("iPlayerAttackHP");
             Destroy(gameObject);
             GameObject explosion = Instantiate(explosionEffect);
             explosion.transform.position = transform.position;
