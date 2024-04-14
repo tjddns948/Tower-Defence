@@ -1,29 +1,43 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 using UnityEngine.AI;
 
-public class MonsterMove : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-
-    public  Transform target;
-
     private NavMeshAgent navMeshAgent;
-
+    private Transform target;
+    private Animator animator;
+    public float FreezeTime = 3.0f;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (target != null)
         {
             navMeshAgent.SetDestination(target.position);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("IceExplosion"))
+        {
+            animator.SetBool("IsAttacked", true);
+            navMeshAgent.speed = 0f;
+            StartCoroutine(ResumeAfterDelay(FreezeTime));
+        }
+    }
+
+    IEnumerator ResumeAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        animator.SetBool("IsAttacked", false); 
+        navMeshAgent.speed = 2f;
     }
 }
