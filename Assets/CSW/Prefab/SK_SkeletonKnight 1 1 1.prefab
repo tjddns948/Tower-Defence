@@ -103,7 +103,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 0.1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -178,9 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94872d16b32e1d47875851e636e29f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  norDamage: 10
-  fireDamage: 20
-  iceDamage: 30
-  fDotDamage: 5
+  norDamage: 20
+  fireDamage: 40
+  iceDamage: 60
+  fDotDamage: 10
   maxEnemyHP: 100
   enemyHP: 100
