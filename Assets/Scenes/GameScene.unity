@@ -290,7 +290,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 85ccb2159f0a5cf4b87878824ce49ec8, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &622150708
 GameObject:
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20204b91b480c124791a37b3bc41d46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPrefab: {fileID: 9088841897702891087, guid: 4076ca7acfc052d4286ad0e350d5c87f, type: 3}
+  monsterPrefab: {fileID: 3518249256706293612, guid: 9f47a108255dfe946a575178e0513e8e, type: 3}
   spawnPoint: {fileID: 622150709}
   spawnInterval: 6
   totalMonsterCount: 20
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20204b91b480c124791a37b3bc41d46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPrefab: {fileID: 9088841897702891087, guid: 4076ca7acfc052d4286ad0e350d5c87f, type: 3}
+  monsterPrefab: {fileID: 3518249256706293612, guid: 9f47a108255dfe946a575178e0513e8e, type: 3}
   spawnPoint: {fileID: 656767096}
   spawnInterval: 3
   totalMonsterCount: 20
@@ -901,7 +901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20204b91b480c124791a37b3bc41d46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPrefab: {fileID: 9088841897702891087, guid: 4076ca7acfc052d4286ad0e350d5c87f, type: 3}
+  monsterPrefab: {fileID: 3518249256706293612, guid: 9f47a108255dfe946a575178e0513e8e, type: 3}
   spawnPoint: {fileID: 1747525695}
   spawnInterval: 5
   totalMonsterCount: 20
