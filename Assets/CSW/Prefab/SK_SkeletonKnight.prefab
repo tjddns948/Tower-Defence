@@ -13,6 +13,18 @@ PrefabInstance:
       value: SK_SkeletonKnight
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 5bdb723f10fa9bd498f304f0a10f2ec4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 5bdb723f10fa9bd498f304f0a10f2ec4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 5bdb723f10fa9bd498f304f0a10f2ec4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 5bdb723f10fa9bd498f304f0a10f2ec4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
