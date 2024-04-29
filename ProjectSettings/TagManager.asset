@@ -12,6 +12,7 @@ TagManager:
   - NormalBullet
   - FireDot
   - IceExplosion
+  - CastleWall
   layers:
   - Default
   - TransparentFX

@@ -9,16 +9,20 @@ public class EnemyHP : MonoBehaviour
     public int fireDamage;
     public int iceDamage;
     public int fDotDamage;
-
+    [Header("EnemyHP")]
     public int maxEnemyHP = 100;
     public int enemyHP = 100;
 
     private bool isDotDamageActive = false;
 
+    [Header("DestroyDelay")]
+    public float desDelay = 3.0f;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         maxEnemyHP = enemyHP;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -68,7 +72,8 @@ public class EnemyHP : MonoBehaviour
     {
         if (enemyHP <= 0)
         {
-            Destroy(gameObject);
+            animator.SetBool("IsDead", true);
+            Destroy(gameObject, desDelay);
         }
     }
 

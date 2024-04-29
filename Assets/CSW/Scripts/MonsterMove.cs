@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("CastleWall").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
@@ -32,6 +33,25 @@ public class EnemyMovement : MonoBehaviour
             navMeshAgent.speed = 0f;
             StartCoroutine(ResumeAfterDelay(FreezeTime));
         }
+        if (other.gameObject.CompareTag("CastleWall"))
+        {
+            animator.SetBool("IsAttackStart", true);
+            transform.LookAt(target);
+            navMeshAgent.avoidancePriority = 49;
+        }
+        if (other.gameObject.CompareTag("NormalBullet") || other.gameObject.CompareTag ("FireBullet"))
+        {
+            animator.SetBool("IsAttacked", true);
+            Invoke("SetBoolAttackedFalse", 0.5f);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("CastleWall"))
+        {
+            animator.SetBool("IsAttackStop", true);
+            navMeshAgent.avoidancePriority = 50;
+        }
     }
 
     IEnumerator ResumeAfterDelay(float delay)
@@ -39,5 +59,9 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(delay);
         animator.SetBool("IsAttacked", false); 
         navMeshAgent.speed = 2f;
+    }
+    void SetBoolAttackedFalse()
+    {
+        animator.SetBool("IsAttacked", false);
     }
 }
