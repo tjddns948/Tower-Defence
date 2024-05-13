@@ -8,10 +8,13 @@ public class PlayerCam : MonoBehaviour
     Rigidbody rb;
 
     [Header("Rotate")]
-    public float mouseSpeed;
     float yRotation;
     float xRotation;
     Camera cam;
+
+    [Range(0, 1600)]
+    public float mouseSpeed;
+
 
     [Header("Move")]
     public float moveSpeed;
