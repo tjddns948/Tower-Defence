@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 
 public class PlayerShot: MonoBehaviour
 {
+    public Cam cShake;
     public GameObject bulletFactory;
     public GameObject magicCircle;
     public Transform bulletSpawn;
@@ -30,7 +31,8 @@ public class PlayerShot: MonoBehaviour
         }
         if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
         {
-            OneShotFire();  
+            OneShotFire();
+            cShake.CamShake();
             nextFireTime = Time.time + 1f / fireRate;
         }
         if (Input.GetMouseButtonUp(0) && magicCircleRenderer.material.color.a > 0)

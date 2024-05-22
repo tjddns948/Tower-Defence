@@ -484,7 +484,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357304380}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1ddd928b039a0f4590aa460eacbf60f, type: 3}
   m_Name: 
@@ -558,6 +558,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 55663116046241432, guid: 258e99e3834da1646bccf71d04163858, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 629892952229052575, guid: 258e99e3834da1646bccf71d04163858, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 860654742091138245, guid: 258e99e3834da1646bccf71d04163858, type: 3}
       propertyPath: m_LocalPosition.x
       value: 104
