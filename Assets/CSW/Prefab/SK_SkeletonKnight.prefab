@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_SkeletonKnight
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 5bdb723f10fa9bd498f304f0a10f2ec4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 5bdb723f10fa9bd498f304f0a10f2ec4, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
