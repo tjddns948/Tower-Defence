@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EnemyCount : MonoBehaviour
@@ -12,12 +13,13 @@ public class EnemyCount : MonoBehaviour
     public Text gameTimeCountText;
     private float gameTime = 0.0f;
     private bool isGameRun = true;
-    GameObject[] enemies; 
+    GameObject[] enemies;
+    public Text winText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        winText.gameObject.SetActive(false);    
         isGameRun = true;
     }
 
@@ -36,6 +38,10 @@ public class EnemyCount : MonoBehaviour
             int enemyCount = enemies.Length;
             enemyCountText.text = "³²Àº Àû: " + enemyCount.ToString();
         }
+        if(isGameRun == false)
+        {
+            WinGame();
+        }
     }
     void PlayTimeCounter()
     {
@@ -50,4 +56,16 @@ public class EnemyCount : MonoBehaviour
             }
         }
     }
+
+    void WinGame()
+    {
+        winText.gameObject.SetActive(true);
+        LoadNextScene();
+    }
+
+    void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 }

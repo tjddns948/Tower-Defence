@@ -8,14 +8,16 @@ public class CastleWall : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth; 
     public Text healthText;
+    public Text gameOverText;
 
     void Start()
     {
         currentHealth = maxHealth;
         UpdateHealthUI();
+        gameOverText.gameObject.SetActive(false);
     }
 
-    // 체력을 감소시키는 메서드
+    // 체력을 감소시키는 메서드s
     private void Update()
     {
         
@@ -38,7 +40,13 @@ public class CastleWall : MonoBehaviour
         UpdateHealthUI();
         if (currentHealth == 0)
         {
-            Debug.Log("성벽파괴");
+            GameOver();
         }
+    }
+
+    void GameOver()
+    {
+        Time.timeScale = 0;
+        gameOverText.gameObject.SetActive(true);    
     }
 }
