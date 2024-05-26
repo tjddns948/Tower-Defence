@@ -28,4 +28,17 @@ public class CastleWall : MonoBehaviour
             healthText.text = "체력: " + currentHealth;
         }
     }
+    public void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+        UpdateHealthUI();
+        if (currentHealth == 0)
+        {
+            Debug.Log("성벽파괴");
+        }
+    }
 }

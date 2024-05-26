@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FreezeTime: 3
+  attackInterval: 1.5
+  damageAmount: 1
 --- !u!114 &7624057937746546393
 MonoBehaviour:
   m_ObjectHideFlags: 0
