@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     private CastleWall castleWall;
     public float attackInterval = 1.0f;
     public int damageAmount = 1;
+    private bool isFrozen = false;
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.CompareTag("IceExplosion"))
         {
             animator.SetBool("IsAttacked", true);
+            isFrozen = true;
             navMeshAgent.speed = 0f;
             StartCoroutine(ResumeAfterDelay(FreezeTime));
         }
@@ -70,6 +72,7 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(delay);
         animator.SetBool("IsAttacked", false); 
         navMeshAgent.speed = 2f;
+        isFrozen = false;
     }
     void SetBoolAttackedFalse()
     {
@@ -82,7 +85,15 @@ public class EnemyMovement : MonoBehaviour
             yield return new WaitForSeconds(attackInterval);
             if (castleWall != null)
             {
-                castleWall.TakeDamage(damageAmount);
+                if (isFrozen == true)
+                {
+                    damageAmount = 0;
+                }
+                else
+                {
+                    damageAmount = 1;
+                    castleWall.TakeDamage(damageAmount);
+                }
             }
         }
     }
