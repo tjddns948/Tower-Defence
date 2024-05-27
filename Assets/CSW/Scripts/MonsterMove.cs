@@ -30,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
         if (target != null)
         {
             navMeshAgent.SetDestination(target.position);
+            //print(target.position);
         }
     }
 
