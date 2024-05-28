@@ -27,6 +27,8 @@ public class PlayerCam : MonoBehaviour
     private float originalMoveSpeed;
     private bool isDashing = false;
 
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +76,7 @@ public class PlayerCam : MonoBehaviour
     {
         isDashing = true;
         moveSpeed = dashSpeed;
+        audioSource.Play();
 
         yield return new WaitForSeconds(dashDuration);
 
